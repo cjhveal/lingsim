@@ -29,6 +29,18 @@ class Utilities
   count: (array, iterator) =>
     @sum _.map(array, (x) => if iterator(x) then 1 else 0)
 
+  # return a letter of the alphabet
+  # n = 0 -> a, n = 1 -> b, n = 2 -> c, ...
+  alpha: (n) =>
+    String.fromCharCode 101 + n
+
+  # return a random letter from the first n
+  randomAlpha: (n) =>
+    @alpha @randomRange(0,n)
+
+
+
+
 Utils = new Utilities()
 
 class Language
@@ -39,8 +51,7 @@ class Language
 
   generateGenome: =>
     @genome = []
-    _.times GENOME_SIZE, => @genome.push
-
+    _.times GENOME_SIZE, => @genome.push Utils.alpha()
 
   distance: (otherLanguage) =>
     Utils.editDistance @genome, otherLanguage.genome
