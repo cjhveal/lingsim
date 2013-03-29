@@ -1,5 +1,5 @@
 Genetic Algoirthm for Interagent speech.
-Population of agents with a "natural" fitness chosen acording to a probability distribution. (fitness measured by edit distance from "optimum" genome)
+Population of agents with a "natural" fitness chosen acording to a normal distribution.
 Language is a secondary genome. It imparts a "linguistic fitness" to the agent.
 
 Total fitness = k*fitness_natural + l*fitness_linguistic
