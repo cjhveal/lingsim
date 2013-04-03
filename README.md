@@ -1,6 +1,9 @@
-Genetic Algoirthm for Interagent speech.
+Genetic Algoirthm for Interagent language simulation.
+
+
+
 Population of agents with a "natural" fitness chosen acording to a normal distribution.
-Language is a secondary genome. It imparts a "linguistic fitness" to the agent.
+Language is defined by a genome. It imparts a "linguistic fitness" to the agent.
 
 Total fitness = k*fitness_natural + l*fitness_linguistic
 
