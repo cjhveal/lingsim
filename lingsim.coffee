@@ -19,6 +19,7 @@ class Utilities
   sum: (numbers) ->
     _.reduce numbers, (memo, n) -> memo + n
 
+  # safe inverse
   inv: (n) ->
     if n is 0 then 0 else 1/n
 
@@ -37,8 +38,6 @@ class Utilities
   # return a random letter from the first n
   randomAlpha: (n) =>
     @alpha @randomRange(0,n)
-
-
 
 
 Utils = new Utilities()
