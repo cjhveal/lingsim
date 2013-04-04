@@ -50,7 +50,7 @@ class Language
 
   generateGenome: =>
     @genome = []
-    _.times GENOME_SIZE, => @genome.push Utils.alpha()
+    _.times GENOME_SIZE, => @genome.push Utils.randomAlpha()
 
   distance: (otherLanguage) =>
     Utils.editDistance @genome, otherLanguage.genome
