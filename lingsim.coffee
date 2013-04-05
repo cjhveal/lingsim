@@ -8,7 +8,7 @@ class Utilities
 
   # random index of a list
   randomIndex: (list) =>
-    @randomRange 0, list.length - 1
+    Math.floor @randomRange 0, list.length
 
   # random element of list
   sample: (list) =>
