@@ -31,10 +31,13 @@ class Utilities
   inv: (n) ->
     if n is 0 then 0 else 1/n
 
+  # hamming distance of two equal length strings
   editDistance: (str1, str2) =>
     pairs = _.zip str1.split(''), str2.split('')
     @count pairs, (a, b) -> a isnt b
 
+  # counts the number of elements of array for which
+  # iterator returns a truthy value
   count: (array, iterator) =>
     @sum _.map(array, (x) => if iterator(x) then 1 else 0)
 
