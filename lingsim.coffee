@@ -6,6 +6,14 @@ class Utilities
   randomRange: (n, m) ->
     n + (m-n) * Math.random()
 
+  # random index of a list
+  randomIndex: (list) =>
+    @randomRange 0, list.length - 1
+
+  # random element of list
+  sample: (list) =>
+    list[@randomIndex(list)]
+
   # standardly distributed random number
   # with mean 0 and std_dev 1
   stdRandom: =>
@@ -36,8 +44,8 @@ class Utilities
     String.fromCharCode 101 + n
 
   # return a random letter from the first n
-  randomAlpha: (n) =>
-    @alpha @randomRange(0,n)
+  randomAlpha: (n=26) =>
+    @alpha @randomRange(0,n-1)
 
 
 Utils = new Utilities()
