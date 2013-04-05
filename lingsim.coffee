@@ -51,9 +51,12 @@ class Utilities
 Utils = new Utilities()
 
 class Genome
+  GENOME_SIZE: 6
+  GENOME_SPACE: 4
+
   constructor: (size, space) ->
     @genome = []
-    _.times size, => @genome.push Utils.randomAlpha(space)
+    _.times GENOME_SIZE, => @genome.push Utils.randomAlpha(GENOME_SPACE)
 
   randomGene: =>
     Utils.randomAlpha(GENOME_SPACE)
@@ -64,9 +67,6 @@ class Genome
 
 
 class Language
-  GENOME_SIZE: 6
-  GENOME_SPACE: 4
-
   constructor: ->
     @genome = new Genome()
 
