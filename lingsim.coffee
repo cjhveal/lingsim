@@ -50,18 +50,29 @@ class Utilities
 
 Utils = new Utilities()
 
+class Genome
+  constructor: (size, space) ->
+    @genome = []
+    _.times size, => @genome.push Utils.randomAlpha(space)
+
+  randomGene: =>
+    Utils.randomAlpha(GENOME_SPACE)
+
+  mutate: =>
+    index = Utils.randomIndex @genome
+    @genome[index] = @randomGene()
+
+
 class Language
   GENOME_SIZE: 6
+  GENOME_SPACE: 4
 
   constructor: ->
-    @genome = @generateGenome()
-
-  generateGenome: =>
-    @genome = []
-    _.times GENOME_SIZE, => @genome.push Utils.randomAlpha()
+    @genome = new Genome()
 
   distance: (otherLanguage) =>
-    Utils.editDistance @genome, otherLanguage.genome
+    @genome.distance otherLanguage.genome
+
 
 class Agent
   NAT_FITNESS_WEIGHT: 0.8
