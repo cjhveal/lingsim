@@ -53,7 +53,7 @@ class Utilities
 
 Utils = new Utilities()
 
-class Genome
+class Language
   GENOME_SIZE: 6
   GENOME_SPACE: 4
 
@@ -68,13 +68,17 @@ class Genome
     index = Utils.randomIndex @genome
     @genome[index] = @randomGene()
 
-
-class Language
-  constructor: ->
-    @genome = new Genome()
-
   distance: (otherLanguage) =>
-    @genome.distance otherLanguage.genome
+    Utils.editDistance @genome, @otherLanguage.genome
+
+  # two point crossover
+  crossover: (otherLanguage) =>
+    otherGenome = otherLanguage.genome
+    [pointA, pointB] = [@randomIndex(), @randomIndex()].sort()
+
+    fragment = @genome[pointA..pointB]
+    @genome[pointA..pointB] = otherGenome[pointA..pointB]
+    otherGenome[pointA..pointB] = fragment
 
 
 class Agent
