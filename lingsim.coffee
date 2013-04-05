@@ -2,7 +2,7 @@ require 'underscore'
 
 class Utilities
 
-  # random number distributed over range [n, m]
+  # random number uniformly distributed over range [n, m]
   randomRange: (n, m) ->
     n + (m-n) * Math.random()
 
